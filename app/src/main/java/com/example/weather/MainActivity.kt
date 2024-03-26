@@ -1,5 +1,6 @@
 package com.example.weather
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -184,7 +185,13 @@ class MainActivity : ComponentActivity() {
                     Button(onClick = { /*TODO*/ }, modifier = modifier.padding(8.dp)) {
                         Text(text = "Search")
                     }
-                    Button(onClick = { /*TODO*/ }, modifier = modifier.padding(8.dp)) {
+                    Button(onClick = {
+                        val intent = Intent(this@MainActivity,FavoriteActivity::class.java)
+                        intent.putExtra("city", city)
+
+                        startActivity(intent)
+
+                    }, modifier = modifier.padding(8.dp)) {
                         Text(text = "My Favorite")
                     }
                 }
